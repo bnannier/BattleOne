@@ -1,0 +1,39 @@
+///////////////////////////////////////////////////////////////////////////////////////
+//	File Name:  fog.txt
+//	Start Date: 05/09/2005
+//	End Date:   09/09/2005
+//
+//	Assignment: BattleOne
+//	Subject:    GAM666, GAM670, GAM671
+//	Programmer: Bobby Nannier
+//	Student #:  020 208 013
+//	Instructor: Evan Weaver	     - GAM666 (Introduction To Game Programming)
+//                                   - GAM670 (Game Programming Techniques)
+//                  Chris Szalwinski - GAM671 (Physics)
+//                  Catherine Leung  - GAM671 (Artificial Intelligence)
+//
+//	Purpose:	
+//
+//	Notes:		
+///////////////////////////////////////////////////////////////////////////////////////
+
+// Effect
+technique Fog{
+    pass P0{
+        // Set Misc render states.
+        pixelshader      = null;
+        vertexshader     = null;
+        fvf              = XYZ | Normal;
+        Lighting         = true;
+        NormalizeNormals = true;
+        SpecularEnable   = false;
+
+        // Fog States
+        FogVertexMode = LINEAR; // linear fog function
+        FogStart      = 50.0f;  // fog starts 50 units away from viewpoint
+        FogEnd        = 300.0f; // fog ends 300 units away from viewpoint
+
+        FogColor      = 0x00CCCCCC; // gray
+        FogEnable     = true;       // enable
+    }
+}

@@ -1,0 +1,17 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10-browsers-legacy
+
+    branches:
+      only:
+        - develop
+
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "54:81:e8:16:78:31:a8:02:cb:40:eb:f6:c4:80:8e:bd"
+      - run: ssh -T git@github.com verify
